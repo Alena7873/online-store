@@ -1,0 +1,368 @@
+/*border-box говорит браузеру учитывать любые границы 
+и внутренние отступы в значениях,
+которые вы указываете в ширине и высоте элемента.*/
+html {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+
+}
+
+/*:before добавляется перед нужным элементом,
+а :after — после. Для добавление контента внутри 
+псевдоэлементов можно воспользоваться свойством content.*/
+
+
+/*Применяется  box-sizing: inherit; для изменения алгоритма
+ расчёта ширины и высоты элемента.*/
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+/*Чтобы убрать подчеркивание,
+нужно просто указать text-decoration: none*/
+
+/*inherit: Наследует значение родителя.*/
+/* text-decoration: none; убирает подчеркивание в силках*/
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Свойство list-style-type изменяет вид маркера для каждого элемента списка. Это свойство используется только в случае,
+когда значение list-style-image установлено как none. Маркеры различаются для маркированного списка (элемент <ul>) и нумерованного (элемент <ol>).*/
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+/*font-size определяет размер шрифта*/
+
+/*line-height устанавливает величину пространства между строками,
+например в тексте.*/
+
+/*font-weight устанавливает начертание шрифта.*/
+body {
+    color: #2f3035;
+    font-family: 'SFUIDisplay-Regular', sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+
+}
+
+/*Свойство max-width предназначено для предотвращения увеличения 
+ширины элемента выше заданного значения*/
+.container {
+    max-width: 1200;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/*Если установить display: flex у контейнера,
+все дочерние элементы становятся flex элементами,
+выстроенными в ряд.*/
+
+/*justify-content определяет,
+как браузер распределяет пространство между и вокруг элементов 
+контента вдоль главной оси flex контейнера,
+или вдоль строчной оси grid контейнера*/
+
+/*Свойство align-items задает выравнивание элементов вдоль поперечной оси.
+ Применяется к родительскому элементу для flex блоков.*/
+
+.header__top-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 61px;
+    font-family: 'SFProDisplay-Bold', sans-serif;
+    font-weight: 700;
+    background-color: currentcolor;
+}
+
+/*Чем отличается display inline от Display Inline-Block? Основное отличие данного свойства по сравнению с display: inline заключается в том,
+что inline-block позволяет установить ширину и высоту элемента. Кроме того,
+свойство display: inline не учитывает верхние и нижние поля и отступы,
+в то время как display: inline-block учитывает их*/
+.menu__item {
+    display: inline-block;
+}
+
+/*применяеться к соседнему класу */
+.menu__item+.menu__item {
+    padding-left: 50px;
+}
+
+/*Внутренние div-ы выстраиваются в ряд (вдоль главной оси) колонками одинаковой высоты,
+независимо от содержимого. display: flex;
+делает все дочерние элементы резиновыми — flex,
+а не инлайновыми или блочными,
+как было изначально.*/
+
+/* justify-content определяет,
+ как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера,
+ или вдоль строчной оси grid контейнера*/
+
+/*Еще одна функция свойства transform — это translate(),
+с помощью которой можно переместить элемент с его начальной точки.*/
+.header__box {
+    display: flex;
+    justify-content: right;
+    height: 3em;
+    margin: 0;
+    transform: translate(-84px, -35px);
+}
+
+/*position: relative Относительное 
+позиционирование сдвигает элемент относительно его обычного положения*/
+.header__adress {
+    margin-right: 60px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 20px;
+    font-weight: normal;
+    color: #f0f0f4;
+    transform: translate(23px, -47px);
+
+
+}
+
+
+/*
+::before создаёт псевдоэлемент,
+который является первым потомком выбранного элемента. 
+Часто используется для добавления косметического содержимого в элемент
+ с помощью свойства content*/
+
+/*position: absolute;
+Абсолютное позиционирование делает две вещи: Элемент исчезает с того места,
+где он должен быть и позиционируется заново. Остальные элементы,
+располагаются так,
+как будто этого элемента никогда не было.*/
+
+.header__adress::before {
+    content: "";
+    position: absolute;
+    background-image: url('../img/location1\ 1.svg');
+    width: 24pxa;
+    height: 25px;
+    left: 0;
+    top: 1px;
+
+
+
+}
+
+.logo {
+    height: 2em;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 42px;
+    transform: translate(15px, -24px);
+
+}
+
+.usr-list {
+    display: flex;
+    align-items: center;
+    height: 2em;
+
+
+}
+
+.user-list__item {
+
+    padding-right: 10px;
+    color: #f0f0f4;
+    transform: translate(23px, -47px);
+}
+
+.basket {
+    position: relative;
+}
+
+.basket__nam {
+    position: absolute;
+    font-family: 'SFProDisplay-MediumItalic', sans-serif;
+    line-height: 20px;
+    color: #fff;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #1c62cd;
+    border-radius: 50%;
+    text-align: center;
+    bottom: -15px;
+    right: -15px;
+}
+
+/*Контейнер нижняя часть heder*/
+.header__bottom {
+    margin-bottom: 78px;
+}
+
+.header__bottom-inner {
+    background-color: #f0f0f4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*justify-content определяет,
+  как браузер распределяет пространство между и вокруг 
+  элементов контента вдоль главной оси flex контейнера,
+  или вдоль строчной оси grid контейнера*/
+.menu-categories {
+    background-color: #f0f0f4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 53px;
+
+
+}
+
+.menu-categories__item {
+    position: relative;
+}
+
+.menu-categories__link {
+    transition: all .3s;
+    font-weight: 400;
+    padding: 15px 0 14px;
+    position: relative;
+
+}
+
+.menu-categories__link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: auto;
+    right: 0;
+    background-color: #1c62cd;
+    height: 3px;
+    bottom: -2px;
+    transition: all .3s;
+
+}
+
+.menu-categories__link:hover {
+    color: black;
+    font-weight: 400;
+    padding: 15px 0 14px;
+    /*font-weight: 600;*/
+    /* border-bottom: 3px solid #1c62cd;*/
+}
+
+.menu-categories__link:hover::before {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+.menu__list {
+    width: 90%;
+    text-align: left;
+    color: #f0f0f4;
+    transform: translate(23px, -47px);
+}
+
+button {
+    margin: 20px;
+    outline: none;
+}
+
+.menu__link {
+
+    padding: 1px 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-13 {
+    border: none;
+    z-index: 1;
+}
+
+.btn-13:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+
+.btn-13:hover {
+    color: #000;
+}
+
+.btn-13:hover:after {
+    top: 0;
+    height: 100%;
+}
+
+.btn-13:active {
+    top: 2px;
+}
+
+
+/*средняя часть банер*/
+/*банера вседа картинкой картинка меняеться на картинку*/
+.banner-section__inner {
+    display: flex;
+    justify-content: space-between;
+    /*В контейнере можно размещать элементы,
+  kоторые будут распределены по всей высоте родителя (из-за свойства justify-content: space-between).*/
+}
+
+.banner-section__slider {
+    max-width: 870px;
+}
+
+.banner-section__slider .slick-arrow .slick-prev {
+    left: 0;
+    background: url('../img/content/lini.svg')·0·0·/·100%·no-repeart;
+}
+
+· .banner-section__slider .slick-arrow .slick-next {
+    right: 0;
+    background: url('../img/content/lines.svg')·0·0·no-repeart;
+}
